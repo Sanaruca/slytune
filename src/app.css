@@ -1,3 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background: #000000;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.stroke {
+  border: #333333 1px solid;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-optical-sizing: auto;
+  @apply font-semibold;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+input[type='text'] {
+  background: transparent;
+}
