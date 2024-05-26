@@ -6,8 +6,7 @@
   import Player from './lib/components/Player.svelte';
   import Playlist from './lib/components/Playlist.svelte';
   import TopBar from './lib/components/TopBar.svelte';
-  import HeartIcon from './lib/icons/heart-icon.svelte';
-  import { TRACKS, type Track } from './mock/music';
+  import { TRACKS, type Song } from './mock/music';
   import { writable } from 'svelte/store';
 
   let audioElement: HTMLAudioElement;
@@ -15,7 +14,7 @@
   let currentTrackSource = '';
   let isPlayingCurrentTrack = false;
 
-  const currentTrack$ = writable<Track>();
+  const currentTrack$ = writable<Song>();
   const currentTrackMetaData = {
     duration: 0,
     currentTime: 0,
@@ -25,14 +24,14 @@
 
   currentTrack$.subscribe(onTrackChange);
 
-  function onTrackChange(newTrack: Track) {
+  function onTrackChange(newTrack: Song) {
     if (!newTrack) return;
     currentTrackSource = '.' + newTrack.url;
 
     audioElement.load();
   }
 
-  function loadTrack(track: Track) {
+  function loadTrack(track: Song) {
     currentTrack$.set(track);
   }
 
@@ -65,7 +64,9 @@
   <TopBar class="fixed p-4 left-0 top-0 w-screen z-10 | lg:pl-40" />
   <section class="mt-8">
     <h3>Playlist para ti</h3>
-    <section class="flex gap-4 mt-5 overflow-auto | lg:overflow-hidden">
+    <section
+      class="playlists | flex gap-4 mt-5 overflow-auto | lg:overflow-hidden"
+    >
       <div
         class="bg-green-500 flex-1 relative overflow-hidden h-64 rounded-2xl max-w-96 min-w-64 p-8 text-sm min-w-max"
       >
@@ -146,15 +147,42 @@
       <div
         class="albums mt-5 flex gap-4 overflow-x-auto snap-x | lg:grid lg:grid-cols-3"
       >
-        <Album class="snap-start" />
-        <Album class="snap-start" />
-        <Album class="snap-start" />
-        <Album class="snap-start" />
-        <Album class="snap-start" />
-        <Album class="snap-start" />
-        <Album class="snap-start" />
-        <Album class="snap-start" />
-        <Album class="snap-start" />
+        <Album
+          class="snap-start"
+          artist="BTS"
+          name="Love Yourself 轉 'Tear'"
+          imageUrl="/images/ly.webp"
+        />
+        <Album
+          class="snap-start"
+          artist="Bring Me the Horizon"
+          name="Sempiternal"
+          imageUrl="/images/sempiternal.jpg"
+        />
+        <Album
+          class="snap-start"
+          artist="Skrillex"
+          name="Quest for Fire"
+          imageUrl="/images/qff.png"
+        />
+        <Album
+          class="snap-start"
+          artist="Falling in Reverse"
+          name="Coming Home (Deluxe Edition)"
+          imageUrl="/images/cominghome.png"
+        />
+        <Album
+          class="snap-start"
+          artist="Oliverse"
+          name="Outerworld - EP "
+          imageUrl="/images/oliverse.webp"
+        />
+        <Album
+          class="snap-start"
+          artist="Lady Gaga"
+          name="The Fame Monster"
+          imageUrl="/images/famemonster.webp"
+        />
       </div>
     </section>
     <section class="mt-5 | flex-1">
@@ -166,18 +194,40 @@
         {/each}
       </div>
     </section>
-    <section class="mt-5 | hidden 2xl:block">
+    <section class="mt-5 | hidden 2xl:block 2xl:w-[30rem]">
       <h3>Seleccionado</h3>
       <div class="img-content | h-56 rounded-2xl mt-5">
-        <img src="/images/mock.jpg" alt="" />
+        <img src={$currentTrack$?.cover ?? '/images/mock.jpg'} alt="" />
       </div>
-      <h2 class="mt-5">Lorem, ipsum dolor.</h2>
-      <div class="font-thin">
-        <p class="mt-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, natus?
-        </p>
-        <span class="block mt-3">Lorem ipsum dolor sit.</span>
-      </div>
+      {#if $currentTrack$}
+        <h2 class="mt-5">{$currentTrack$.name} by {$currentTrack$.artist}</h2>
+        <div class="font-thin">
+          <p class="mt-5">
+            En esta sección, encontrarás una breve descripcion sobre la musica
+            seleccionada. Sumérgete en los detalles, descubre los matices y
+            conecta con la música de una manera única.
+          </p>
+          <span
+            class="block mt-3 font-semibold"
+            style="font-family: 'DM Sans', 'Courier New', Courier, monospace;"
+            >{$currentTrack$.year} <span class="text-gray-500">|</span>
+            {$currentTrack$.genere}
+          </span>
+        </div>
+      {:else}
+        <div class="font-thin">
+          <p class="mt-5">
+            En esta sección, encontrarás una breve descripcion sobre la musica
+            seleccionada. Sumérgete en los detalles, descubre los matices y
+            conecta con la música de una manera única.
+          </p>
+          <span
+            class="block mt-3 font-semibold"
+            style="font-family: 'DM Sans', 'Courier New', Courier, monospace;"
+            >Año <span class="text-gray-500">|</span> Genero
+          </span>
+        </div>
+      {/if}
     </section>
   </div>
   <Player
@@ -191,3 +241,13 @@
     onTimeChange={(time) => (currentTrackMetaData.currentTime = time)}
   />
 </main>
+
+<style>
+  .playlists {
+    @apply relative;
+    @apply after:hidden lg:after:block after:absolute after:w-20  after:right-0 after:top-0 after:h-full;
+  }
+  .playlists::after {
+    background: linear-gradient(270deg, black, transparent);
+  }
+</style>

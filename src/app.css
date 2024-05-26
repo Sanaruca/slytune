@@ -84,6 +84,7 @@ input[type='text'] {
 .img-content {
   overflow: hidden;
   position: relative;
+  flex: none;
 }
 
 .img-content > img {

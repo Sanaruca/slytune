@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { type Track } from '../../mock/music';
+  import { type Song } from '../../mock/music';
   import NextIcon from '../icons/next-icon.svelte';
   import PauseIcon from '../icons/pause-icon.svelte';
   import PlayIcon from '../icons/play-icon.svelte';
@@ -12,7 +12,7 @@
 
   export let volume = 50;
 
-  export let track: Track | undefined;
+  export let track: Song | undefined;
   export let trackPlay: {
     duration: number;
     currentTime: number;
@@ -58,7 +58,7 @@
   >
     <div class="player__song | flex gap-2 items-center | lg:w-64">
       <div
-        class="player__song__cover image-content overflow-hidden | bg-slate-500 h-14 w-14 rounded-xl"
+        class="player__song__cover img-content overflow-hidden | bg-slate-500 h-14 w-14 rounded-xl"
       >
         <img src={track.cover} alt="" />
       </div>
