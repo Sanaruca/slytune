@@ -27,10 +27,28 @@ h6 {
   @apply font-semibold;
 }
 
+h2 {
+  @apply text-2xl;
+}
+
 h3 {
   @apply text-xl;
 }
 
 input[type='text'] {
   background: transparent;
+}
+
+.img-content {
+  overflow: hidden;
+  position: relative;
+}
+
+.img-content > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
 }
