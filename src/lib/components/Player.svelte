@@ -10,7 +10,7 @@
   import CollectionIcon from '../icons/collection-icon.svelte';
   import VolumeUpIcon from '../icons/volume-up-icon.svelte';
 
-  let localTime = 0;
+  export let volume = 50;
 
   export let track: Track | undefined;
   export let trackPlay: {
@@ -24,6 +24,7 @@
 
   export let onPlayPause: (() => void) | undefined = undefined;
   export let onTimeChange: ((time: number) => void) | undefined = undefined;
+  export let onVolumeChange: ((volume: number) => void) | undefined = undefined;
   export let status: 'playing' | 'paused' = 'paused';
 
   export { className as class };
@@ -110,8 +111,16 @@
       </div>
     </div>
     <div class="player__more_controls w-64 | hidden | lg:block">
-      <div class="player__more_controls__volume">
+      <div class="player__more_controls__volume | flex gap-5">
         <VolumeUpIcon color="white" />
+        <input
+          type="range"
+          class="flex-1 cursor-pointer"
+          min="0"
+          max={100}
+          bind:value={volume}
+          on:input={(e) => onVolumeChange(+e.target['value'])}
+        />
       </div>
       <div class="player__more_controls__actions | flex gap-5 justify-end">
         <RepeatAlternativeIcon color="#F3F4F6" />

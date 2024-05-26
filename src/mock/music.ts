@@ -11,6 +11,20 @@ export interface Track {
 
 export const TRACKS: Track[] = [
   {
+    name: 'Wasabi',
+    artist: 'Little Mix',
+    genere: 'POP',
+    url: '/music/Little_Mix_-_Wasabi.mp3',
+    cover: '/images/songs/say_my_name.png',
+  },
+  {
+    name: 'Magnetic',
+    artist: 'ILLIT',
+    genere: 'K-POP',
+    url: '/music/ILLIT_-_Magnetic.mp3',
+    cover: '/images/songs/say_my_name.png',
+  },
+  {
     name: 'Say My Name',
     artist: 'Ateez',
     genere: 'K-POP',
