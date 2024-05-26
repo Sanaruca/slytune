@@ -15,14 +15,21 @@ export const TRACKS: Track[] = [
     artist: 'Little Mix',
     genere: 'POP',
     url: '/music/Little_Mix_-_Wasabi.mp3',
-    cover: '/images/songs/say_my_name.png',
+    cover: '/images/songs/wasabi.jpg',
+  },
+  {
+    name: 'Bling-Bang-Bang-Born',
+    artist: 'Creepy Nuts',
+    genere: 'POP',
+    url: '/music/Creepy_Nuts_-_Bling-Bang-Bang-Born.mp3',
+    cover: '/images/songs/bbb.jpg',
   },
   {
     name: 'Magnetic',
     artist: 'ILLIT',
     genere: 'K-POP',
     url: '/music/ILLIT_-_Magnetic.mp3',
-    cover: '/images/songs/say_my_name.png',
+    cover: '/images/songs/magnetic.jpg',
   },
   {
     name: 'Say My Name',

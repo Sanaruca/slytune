@@ -20,7 +20,7 @@
     currentTime: 0,
   };
 
-  let volume = 1;
+  let volume = 0.5;
 
   currentTrack$.subscribe(onTrackChange);
 
@@ -64,12 +64,46 @@
   <TopBar class="fixed p-4 left-0 top-0 w-screen z-10 | lg:pl-40" />
   <section class="mt-8">
     <h3>Playlist para ti</h3>
-    <section class="flex gap-4 mt-5 overflow-auto">
-      <div class="bg-green-400 flex-1 h-64 rounded-2xl max-w-96 min-w-64"></div>
-      <Playlist />
-      <Playlist />
-      <Playlist />
-      <Playlist />
+    <section class="flex gap-4 mt-5 overflow-auto | lg:overflow-hidden">
+      <div
+        class="bg-green-400 flex-1 relative overflow-hidden h-64 rounded-2xl max-w-96 min-w-64 p-8 text-sm min-w-max"
+      >
+        <div class="z-[1] relative">
+          <h5>PLAYLIST</h5>
+          <p class="text-balance max-w-96 mt-2">
+            Wiz Khalifa, Post Malone, Soulja Boy and more Made for Guilherme
+            Dourado - 50 songs, 3hr 5 min
+          </p>
+          <h3 class="text-5xl mt-5">Daily Mix 3</h3>
+          <div class="flex gap-5"></div>
+        </div>
+
+        <img
+          src="/images/guitarman.png"
+          alt="guitar man"
+          class="absolute object-cover h-[20em] -right-6 -bottom-8"
+        />
+      </div>
+      <Playlist
+        title="K-pop"
+        description="El Sendero de las Estrellas"
+        imageUrl="/images/blackpink.jpg"
+      />
+      <Playlist
+        title="Dance"
+        description="¡Solo Baila!"
+        imageUrl="/images/dance.jpg"
+      />
+      <Playlist
+        title="Rock & Trap"
+        description="Ritmo Rebelde, Fusionado"
+        imageUrl="/images/brigme.jpg"
+      />
+      <Playlist
+        title="Guitar Master"
+        description="Maestros en la Guitarra"
+        imageUrl="/images/poli.jpg"
+      />
       <Playlist />
     </section>
   </section>
