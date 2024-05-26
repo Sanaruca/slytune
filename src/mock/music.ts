@@ -11,6 +11,23 @@ export interface Track {
 
 export const TRACKS: Track[] = [
   {
+    name: 'DDU-DU DDU-DU',
+    artist: 'BLACKPINK',
+    genere: 'POP',
+    url: '/music/BLACKPINK_-_DDU-DU_DDU-DU.mp3',
+    cover: '/images/songs/dududu.avif',
+    util: {
+      player_color: '#b86271',
+    },
+  },
+  {
+    name: 'I Wanna Dance with Somebody (Who Loves)',
+    artist: 'Whitney Houston',
+    genere: 'POP',
+    url: '/music/Whitney_Houston_-_I_Wanna_Dance_with_Somebody_(Who_Loves).mp3',
+    cover: '/images/songs/iwdwsb.jpg',
+  },
+  {
     name: 'Wasabi',
     artist: 'Little Mix',
     genere: 'POP',
@@ -23,6 +40,9 @@ export const TRACKS: Track[] = [
     genere: 'POP',
     url: '/music/Creepy_Nuts_-_Bling-Bang-Bang-Born.mp3',
     cover: '/images/songs/bbb.jpg',
+    util: {
+      player_color: '#857300',
+    },
   },
   {
     name: 'Magnetic',

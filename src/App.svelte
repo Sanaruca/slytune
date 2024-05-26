@@ -6,6 +6,7 @@
   import Player from './lib/components/Player.svelte';
   import Playlist from './lib/components/Playlist.svelte';
   import TopBar from './lib/components/TopBar.svelte';
+  import HeartIcon from './lib/icons/heart-icon.svelte';
   import { TRACKS, type Track } from './mock/music';
   import { writable } from 'svelte/store';
 
@@ -66,7 +67,7 @@
     <h3>Playlist para ti</h3>
     <section class="flex gap-4 mt-5 overflow-auto | lg:overflow-hidden">
       <div
-        class="bg-green-400 flex-1 relative overflow-hidden h-64 rounded-2xl max-w-96 min-w-64 p-8 text-sm min-w-max"
+        class="bg-green-500 flex-1 relative overflow-hidden h-64 rounded-2xl max-w-96 min-w-64 p-8 text-sm min-w-max"
       >
         <div class="z-[1] relative">
           <h5>PLAYLIST</h5>
@@ -75,7 +76,38 @@
             Dourado - 50 songs, 3hr 5 min
           </p>
           <h3 class="text-5xl mt-5">Daily Mix 3</h3>
-          <div class="flex gap-5"></div>
+          <div class="flex gap-5 items-center">
+            <div class="flex -space-x-3 font-mono leading-6 mt-3">
+              <div
+                class="img-content w-8 h-8 rounded-full flex items-center justify-center ring-1 shadow-xl z-0"
+              >
+                <img src="/images/profile_1.jpg" alt="" />
+              </div>
+              <div
+                class="img-content w-8 h-8 rounded-full flex items-center justify-center ring-1 shadow-xl z-10"
+              >
+                <img src="/images/profile_2.jpg" alt="" />
+              </div>
+              <div
+                class="img-content w-8 h-8 rounded-full flex items-center justify-center ring-1 shadow-xl z-20"
+              >
+                <img src="/images/profile_3.jpg" alt="" />
+              </div>
+              <div
+                class="img-content w-8 h-8 rounded-full flex items-center justify-center ring-1 shadow-xl z-30"
+              >
+                <img src="/images/profile_4.jpg" alt="" />
+              </div>
+              <div
+                class="img-content w-8 h-8 rounded-full flex items-center justify-center ring-1 shadow-xl z-40"
+              >
+                <img src="/images/profile_5.jpg" alt="" />
+              </div>
+            </div>
+            <div class="">
+              <span>33k Likes</span>
+            </div>
+          </div>
         </div>
 
         <img
@@ -114,6 +146,9 @@
       <div
         class="albums mt-5 flex gap-4 overflow-x-auto snap-x | lg:grid lg:grid-cols-3"
       >
+        <Album class="snap-start" />
+        <Album class="snap-start" />
+        <Album class="snap-start" />
         <Album class="snap-start" />
         <Album class="snap-start" />
         <Album class="snap-start" />
