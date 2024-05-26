@@ -99,7 +99,7 @@
     </section>
     <section class="mt-5 | hidden 2xl:block">
       <h3>Seleccionado</h3>
-      <div class="img-content | h-56 rounded-2xl">
+      <div class="img-content | h-56 rounded-2xl mt-5">
         <img src="/images/mock.jpg" alt="" />
       </div>
       <h2 class="mt-5">Lorem, ipsum dolor.</h2>
