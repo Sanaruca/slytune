@@ -49,6 +49,18 @@
     const porcentage = `${(Math.floor(currentTime) / duration) * 100}%`;
     return porcentage as any;
   }
+
+  function toggleVolume() {
+    if (volume > 0) {
+      volume = 0;
+    } else {
+      volume = 50;
+    }
+
+    if (onVolumeChange) {
+      onVolumeChange(volume);
+    }
+  }
 </script>
 
 {#if track}
@@ -81,18 +93,21 @@
     <div
       class="player__contorls flex-1 flex-col gap-3 items-center | hidden lg:flex"
     >
-      <div class="player__contorls__buttons | flex gap-5 items-center">
-        <ShuffleIcon color="#999999" size={25} />
-        <NextIcon color="#999999" size={25} class="-scale-100" />
+      <div
+        class="player__contorls__buttons | flex gap-5 items-center"
+        style="color: #999999; font-size: 1.3em;"
+      >
+        <i class="fi fi-br-arrows-cross"></i>
+        <i class="fi fi-ss-rewind"></i>
         <button class="p-3 rounded-full bg-white" on:click={onPlayPause}>
           {#if status === 'playing'}
-            <PauseIcon />
+            <PauseIcon color={track.util ? track.util.player_color : 'black'} />
           {:else}
-            <PlayIcon />
+            <PlayIcon color={track.util ? track.util.player_color : 'black'} />
           {/if}
         </button>
-        <NextIcon color="#999999" size={25} />
-        <RepeatIcon color="#999999" size={25} />
+        <i class="fi fi-ss-forward"></i>
+        <i class="fi fi-br-arrows-repeat"></i>
       </div>
       <div
         class="player__contorls__timeline | flex w-full gap-7"
@@ -111,8 +126,20 @@
       </div>
     </div>
     <div class="player__more_controls w-64 | hidden | lg:block">
-      <div class="player__more_controls__volume | flex gap-5">
-        <VolumeUpIcon color="white" />
+      <div class="player__more_controls__volume | flex gap-5 items-center">
+        <button
+          class="hover:text-green-500 transition-all"
+          on:click={toggleVolume}
+        >
+          <i
+            class="fi fi-ss-volume{volume >= 50
+              ? ''
+              : volume < 1
+                ? '-mute text-red-500'
+                : '-down'}"
+            style="font-size: 1.3em;"
+          ></i>
+        </button>
         <input
           type="range"
           class="flex-1 cursor-pointer"

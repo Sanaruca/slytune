@@ -231,7 +231,7 @@
     </section>
   </div>
   <Player
-    class="rounded-lg fixed z-20 bottom-[3.8rem] left-1/2 w-[calc(100vw-.5rem)] -translate-x-1/2 | justify-between lg:flex  lg:left-0 lg:w-screen lg:translate-x-0 lg:bottom-0 lg:rounded-none lg:pb-5 lg:px-12"
+    class="rounded-lg fixed z-20 bottom-[3.8rem] gap-5 left-1/2 w-[calc(100vw-.5rem)] -translate-x-1/2 | justify-between lg:flex  lg:left-0 lg:w-screen lg:translate-x-0 lg:bottom-0 lg:rounded-none lg:pb-5 lg:px-12"
     volume={volume * 100}
     onVolumeChange={(v) => (volume = v / 100)}
     track={$currentTrack$}

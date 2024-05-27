@@ -19,7 +19,7 @@ export const TRACKS: Song[] = [
     url: '/music/Lady_Gaga_-_Telephone.mp3',
     cover: '/images/famemonster.webp',
     util: {
-      player_color: '#b86271',
+      player_color: '#464646',
     },
   },
   {

@@ -8,6 +8,7 @@
     "test": "nx test"
   },
   "dependencies": {
+    "@flaticon/flaticon-uicons": "^3.2.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
