@@ -95,7 +95,7 @@
     >
       <div
         class="player__contorls__buttons | flex gap-5 items-center"
-        style="color: #999999; font-size: 1.3em;"
+        style="color: #e1e1e1; font-size: 1.3em;"
       >
         <i class="fi fi-br-arrows-cross"></i>
         <i class="fi fi-ss-rewind"></i>

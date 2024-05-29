@@ -58,10 +58,10 @@
 </audio>
 
 <Navigation
-  class="fixed bottom-0 left-0 w-screen z-20 flex items-center gap-10 | lg:top-0 lg:h-screen lg:w-auto lg:flex-col lg:pt-12 lg"
+  class="fixed bottom-0 left-0 w-screen z-20 flex items-center gap-10 lg:hover:bg-[#111111] transition-all duration-500 | lg:top-0 lg:h-screen lg:w-auto lg:flex-col lg:pt-12 lg"
 />
-<main class="p-4 pb-44 pt-20 | lg:ml-20">
-  <TopBar class="fixed p-4 left-0 top-0 w-screen z-10 | lg:pl-40" />
+<TopBar class="fixed p-4 left-0 top-0 w-screen z-10 | lg:pl-40" />
+<main class="p-4 pb-44 mt-20 | lg:ml-20 flex flex-col overflow-auto">
   <section class="mt-8">
     <h3>Playlist para ti</h3>
     <section
@@ -140,8 +140,8 @@
       <Playlist />
     </section>
   </section>
-  <div class="lg:flex lg:flex-row-reverse gap-8">
-    <section class="mt-5">
+  <div class="lg:flex lg:flex-row-reverse gap-8 relative">
+    <section class="mt-5 | lg:sticky top-0 self-start">
       <h3>Albums sugeridos para ti</h3>
 
       <div
@@ -194,7 +194,9 @@
         {/each}
       </div>
     </section>
-    <section class="mt-5 | hidden 2xl:block 2xl:w-[30rem]">
+    <section
+      class="mt-5 | hidden 2xl:block 2xl:w-[30rem] | lg:sticky top-0 self-start"
+    >
       <h3>Seleccionado</h3>
       <div class="img-content | h-56 rounded-2xl mt-5">
         <img src={$currentTrack$?.cover ?? '/images/mock.jpg'} alt="" />
@@ -230,17 +232,17 @@
       {/if}
     </section>
   </div>
-  <Player
-    class="rounded-lg fixed z-20 bottom-[3.8rem] gap-5 left-1/2 w-[calc(100vw-.5rem)] -translate-x-1/2 | justify-between lg:flex  lg:left-0 lg:w-screen lg:translate-x-0 lg:bottom-0 lg:rounded-none lg:pb-5 lg:px-12"
-    volume={volume * 100}
-    onVolumeChange={(v) => (volume = v / 100)}
-    track={$currentTrack$}
-    status={isPlayingCurrentTrack ? 'playing' : 'paused'}
-    onPlayPause={playOrPauseTrack}
-    trackPlay={currentTrackMetaData}
-    onTimeChange={(time) => (currentTrackMetaData.currentTime = time)}
-  />
 </main>
+<Player
+  class="rounded-lg fixed z-20 bottom-[3.8rem] gap-5 left-1/2 w-[calc(100vw-.5rem)] -translate-x-1/2 | justify-between lg:flex lg:static  lg:translate-x-0 lg:w-full lg:rounded-none lg:pb-5 lg:px-12"
+  volume={volume * 100}
+  onVolumeChange={(v) => (volume = v / 100)}
+  track={$currentTrack$}
+  status={isPlayingCurrentTrack ? 'playing' : 'paused'}
+  onPlayPause={playOrPauseTrack}
+  trackPlay={currentTrackMetaData}
+  onTimeChange={(time) => (currentTrackMetaData.currentTime = time)}
+/>
 
 <style>
   .playlists {

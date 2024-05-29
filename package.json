@@ -18,6 +18,7 @@
     "@nx/vite": "19.0.4",
     "@nx/web": "19.0.4",
     "@nx/workspace": "19.0.4",
+    "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.5.9",
     "@sveltejs/vite-plugin-svelte": "^3.1.0",
     "@swc-node/register": "~1.8.0",

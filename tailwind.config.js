@@ -1,7 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   mode: 'jit',
-  content: ['./src/**/*.{html,svelte,tsx,ts,jsx,js,pcss,scss,css}'],
+  content: [
+    './src/**/*.{html,svelte,tsx,ts,jsx,js,pcss,scss,css}',
+    './index.html',
+  ],
   // PurgeCSS options
   // Reference: https://purgecss.com/
   //enable: production, // disable purge in dev
